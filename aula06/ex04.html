@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font: normal 20pt arial, helvetica, sans-serif;
+        }
+        body p{
+            background-color: grey;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var nome = window.prompt('Qual o seu nome?')
+        document.write(`<p>Olá <strong>${nome}</strong>! Seu nome tem ${nome.length} letras</p>`)
+        document.write(`<p>Seu nome em maiúsculas é ${nome.toUpperCase()}</p>`)
+        document.write(`<p>Seu nome em minúsculas é ${nome.toLowerCase()}</p>`
+        )
+        var num = Number(window.prompt('Digite um número: '))
+        document.write(`<p>O seu número foi esse ${num}</p>
+        <p>O mesmo número com vírgula fica assim ${num.toFixed(2).replace('.', ',')}</p>
+        <p>E este mesmo número em Reais Brasileiros fica assim: ${num.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}</p>
+        <p>E até mesmo em dólar americano: ${num.toLocaleString('pt-br', {style: 'currency', currency: 'USD'})}</p>
+        <p>Ou em Euro: ${num.toLocaleString('pt-br', {style: 'currency', currency: 'EUR'})}</p>`)
+    </script>
+</body>
+</html>
