@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somando Números</title>
+    <style>
+        body{
+            font: normal 15pt arial;
+        }
+    </style>
 </head>
 <body>
     <h1>Somas</h1>
@@ -11,20 +16,27 @@
     
     <input type="number" name="num2" id="num2" placeholder="Segundo Número">
     
-    <input type="button" value="somar" onclick="somou()">
+    <input type="button" value="somar" onclick="somar()">
     
-    <p id="soma"></p>
+    <p id="soma">O resultado aparecerá aqui.</p>
     
     <script>
-        var tn1= window.document.querySelector('input#num1')
-        var tn2= window.document.getElementsByName('num2')
-        var n1= Number(tn1.value)
-        var n2= Number(tn2.value)
-        var resultado= n1 + n2
+        var tn1= window.document.getElementById('num1')
+
+        var tn2= window.document.getElementById('num2')
+
         var soma= window.document.getElementById('soma')
 
-        function somou(){
-            soma.innerHTML= `A soma entre ${n1} e ${n2} é igual a ${resultado}`
+        function somar(){
+            
+
+            var n1= Number(tn1.value)
+
+            var n2= Number(tn2.value)
+
+            var resultado= n1 + n2
+
+            soma.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong>${resultado}</strong>`
         }
     </script>
 </body>
