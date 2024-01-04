@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 01</title>
+    <style>
+        body{
+            background-color: rgb(62, 146, 255);
+            font: normal 15pt Arial;
+        }
+
+        header{
+            text-align: center;
+            color: white;
+        }
+
+        section{
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body id="corpo" onload="carregar()">
+    <header>
+        <h1>Hora do Dia
+        </h1>
+    </header>
+    <section>
+        <div id="msg">
+            Aqui vai aparececer a mensagem
+        </div>
+        <div id="foto">
+            <img id="imagem" src="imagens/manha.png" alt="">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+    <script>
+        function carregar(){
+        var msg = document.getElementById('msg')
+        var img = document.getElementById('imagem')
+        var data = new Date()
+        var hora = 12
+        msg.innerHTML = `São, pontualmente, ${hora} horas agora.`
+
+        if (hora > 4 && hora < 12){
+            img.src = 'imagens/manha.png'
+            document.body.style.background = '#e2cd9f'
+        } else if (hora == 12){
+            msg.innerHTML = `Já pode almoçar?`
+            img.src = 'https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1'
+        } else if (hora >= 13 && hora < 19){
+            img.src = 'imagens/tarde.png'
+            document.body.style.background = '#b9846f'
+        } else{
+            img.src = 'imagens/noite.png'
+            document.body.style.background = 'black'
+        }
+    }
+    </script>
+</body>
+</html>
