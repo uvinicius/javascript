@@ -52,7 +52,7 @@
         var msg = document.getElementById('msg')
         var img = document.getElementById('imagem')
         var data = new Date()
-        var hora = 12
+        var hora = data.getHours
         msg.innerHTML = `São, pontualmente, ${hora} horas agora.`
 
         if (hora > 4 && hora < 12){
