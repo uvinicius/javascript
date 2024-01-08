@@ -32,21 +32,37 @@
 </head>
 <body>
     <header>
-        <h1>Título</h1>
+        <h1>Gerador de Tabuada</h1>
     </header>
     <section>
         <div>
-            Testando...
+            Número: <input type="number" name="num" id="num">
+            <input type="button" value="Gerar Tabuada" onclick="gerar()">
         </div>
-        <div>
-            Olá!
+        <div id="res">
+                <select name="tabuada" id="tabuada" size="10">
+                    
+                </select>
         </div>
     </section>
     <footer>
         <p>&copy; CursoemVideo</p>
     </footer>
     <script>
-        
+        function gerar(){
+            let num = document.getElementById('num')
+            let tab = document.getElementById('tabuada')
+            if (num.value.length == 0) {
+                window.alert('Por favor, digite um valor!')
+            } else {
+                let n = Number(num.value)
+                let opt = document.createElement('option')
+                for (let c = Number(1) ; c <= 10 ; c += 1) {
+                    opt.innerHTML = `${n} x ${c} = ${n * c}`
+                    tab.appendChild(opt)
+                }
+            }
+        }
     </script>
 </body>
 </html>
