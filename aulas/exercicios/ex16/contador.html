@@ -36,17 +36,47 @@
     </header>
     <section>
         <div>
-            Testando...
+            <p>
+                Início: <input type="number" name="inicio" id="inicio">
+            </p>
+            <p>
+                Fim: <input type="number" name="fim" id="fim">
+            </p>
+            <p>
+                Passo: <input type="number" name="passo" id="passo" min="0">
+            </p>
+            <p>
+                <input type="button" value="Contar" onclick="contar()">
+            </p>
         </div>
-        <div>
-            Olá!
+        <div id="res">
+            A contagem aparecerá <strong>aqui.</strong>
         </div>
     </section>
     <footer>
         <p>&copy; CursoemVideo</p>
     </footer>
     <script>
-        
+        function contar() {
+            let inicio = document.getElementById('inicio')
+            let fim = document.getElementById('fim')
+            let passo = document.getElementById('passo')
+            let res = document.getElementById('res')
+            res.style.color = 'black'
+            if (inicio.value < fim.value && passo.value > 0){
+                res.innerHTML = 'Contando... '
+                for (let c = Number(inicio.value) ; c <= Number(fim.value) ; c += Number(passo.value)){
+                    res.innerHTML += `${c} \u{1F449} `
+                }
+                res.innerHTML += '🏳️'
+            } else if (inicio.value > fim.value){
+                res.innerHTML = 'É óbvio que o número inicial deve ser <strong>menor</strong> que o final.'
+                res.style.color = 'red'
+            } else if (inicio.value.length == 0 || fim.value.length == 0 || passo.value.length == 0 ){
+                window.alert('Por favor, digite os valores nos três campos para usar esta ferramenta.')
+                
+            }
+        }
     </script>
 </body>
 </html>

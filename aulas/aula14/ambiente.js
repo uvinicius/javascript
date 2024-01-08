@@ -9,5 +9,5 @@
 */
 
 for (var c; c <= 500; c++){
-    console.log(`${c}`)
+    console.log(c)
 }
