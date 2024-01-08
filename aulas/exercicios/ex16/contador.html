@@ -70,11 +70,19 @@
                 }
                 res.innerHTML += '🏳️'
             } else if (inicio.value > fim.value){
-                res.innerHTML = 'É óbvio que o número inicial deve ser <strong>menor</strong> que o final.'
-                res.style.color = 'red'
+                res.innerHTML = 'Contando... '
+                for (let c = Number(inicio.value) ; c >= Number(fim.value) ; c -= Number(passo.value)){
+                    res.innerHTML += `${c} \u{1F449} `
+                }
+                res.innerHTML += '🏳️'
             } else if (inicio.value.length == 0 || fim.value.length == 0 || passo.value.length == 0 ){
                 window.alert('Por favor, digite os valores nos três campos para usar esta ferramenta.')
-                
+            } else if (passo.value <= 0){
+                res.innerHTML = 'Coloque um <strong>valor válido</strong> no campo de "Passo" (Acima de 0), por favor.'
+                res.style.color = 'red'
+            } else {
+                res.innerHTML = 'Algum <strong>erro desconhecido</strong> foi detectado...'
+                res.style.color = 'darkred'
             }
         }
     </script>
