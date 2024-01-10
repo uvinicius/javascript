@@ -41,15 +41,18 @@
         <div>
             <p>Número (entre 1 e 100): <input type="number" name="num" id="num" placeholder="Digite o número aqui"> <input type="button" value="Adicionar" onclick="adicionar()"></p>
             
-            
-
-        </div>
-        <div id="res">
             <select name="lista" id="lista" size="10">
 
             </select>
             <br>
             <input type="button" value="Analisar" onclick="analisar()">
+            <br>
+            <input type="button" value="Limpar" onclick="limpar()">
+            
+
+        </div>
+        <div id="res">
+            
         </div>
     </section>
     <footer>
@@ -104,22 +107,34 @@
                 let tot = numeros.length
                 let maior = numeros[0]
                 let menor = numeros[0]
+                let soma = 0
+                let media = 0
                 for (let pos in numeros){
-                    let soma = 0 += valores[pos]
-                    let media = soma/tot
+                    soma += numeros[pos]
+                    media = soma/tot
                     if (numeros[pos] > maior){
-                        maior = valores[pos]
+                        maior = numeros[pos]
                     }
                     if (numeros[pos] < menor){
-                        menor = valores[pos]
+                        menor = numeros[pos]
                     }
                 }
-                res.innerHTML = `Ao todo temos ${numeros.length} número(s) cadastrado(s)`
-                res.innerHTML += `O maior valor informado foi ${maior}`
-                res.innerHTML += `O menor valor informado foi ${menor}`
-                res.innerHTML += `A soma dos valores é ${soma}`
-                res.innerHTML += `A média dos valores é ${media}`
+                if(numeros.length > 1){
+                res.innerHTML = `<p>Ao todo temos ${numeros.length} número(s) cadastrado(s)</p>`
+                res.innerHTML += `<p>O maior valor informado foi ${maior}</p>`
+                res.innerHTML += `<p>O menor valor informado foi ${menor}</p>`
+                res.innerHTML += `<p>A soma dos valores é ${soma}</p>`
+                res.innerHTML += `<p>A média dos valores é ${media}</p>`
+            } else {
+                res.innerHTML = `<p>Ao todo temos apenas ${numeros.length} número cadastrado</p>`
+                res.innerHTML += `<p>O qual é igual a ${numeros[0]}</p>`
             }
+            }
+        }
+
+        function limpar(){
+            list.innerHTML = ''
+            numeros.length = 0
         }
     </script>
 </body>
